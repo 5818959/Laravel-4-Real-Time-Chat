@@ -37,3 +37,29 @@ App.IndexRoute = Ember.Route.extend({
 		return this.store.find('message');
 	}
 });
+
+try	{
+	if (!WebSocket) {
+		console.log('No websocket support');
+	} else {
+		var socket = new WebSocket('ws://127.0.0.1:7778/');
+
+		socket.addEventListener('open', function (e) {
+			console.log('open: ', e);
+		});
+
+		socket.addEventListener('error', function (e) {
+			console.log('error: ', e);
+		});
+
+		socket.addEventListener('message', function (e) {
+			console.log('message: ', e);
+		});
+
+		console.log('socket: ', socket);
+
+		window.socket = socket;
+	}
+} catch (e) {
+	console.log('exception: ' + e);
+}
