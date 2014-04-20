@@ -27,16 +27,18 @@
                     <div class="col-md-12">
                         <h1>Laravel 4 Chat</h1>
                         <table class="table table-striped">
-                            @{{#each message in model}}
-                                <tr>
-                                    <td>
-                                        @{{message.user}}
-                                    </td>
-                                    <td>
-                                        @{{message.message}}
-                                    </td>
-                                </tr>
-                            @{{/each}}
+                            <tbody>
+                                @{{#each}}
+                                    <tr>
+                                        <td>
+                                            @{{user}}
+                                        </td>
+                                        <td>
+                                            @{{text}}
+                                        </td>
+                                    </tr>
+                                @{{/each}}
+                            </tbody>
                         </table>
                     </div>
                 </div>
